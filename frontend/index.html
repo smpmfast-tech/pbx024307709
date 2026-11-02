@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="th" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FreePBX NT Voice Architecture Suite | 024307709</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: '#ecfdf5',
+                500: '#10b981',
+                600: '#059669',
+                700: '#047857',
+              },
+              telecom: {
+                dark: '#0b1120',
+                card: '#131d31',
+                border: '#1f2d48',
+                accent: '#38bdf8'
+              }
+            },
+            fontFamily: {
+              mono: ['Courier New', 'monospace', 'ui-monospace'],
+            }
+          }
+        }
+      }
+    </script>
+      </head>
+  <body class="bg-[#080d1a] text-slate-100 min-h-screen selection:bg-cyan-500 selection:text-black">
+    <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
+  </body>
+</html>
