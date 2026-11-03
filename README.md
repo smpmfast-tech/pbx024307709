@@ -6,6 +6,27 @@ The backend acts as a proxy, handling Google Cloud API calls.
 This project is intended for demonstration and prototyping purposes only.
 It is not intended for use in a production environment.
 
+See [docs/architecture.md](docs/architecture.md) for the verified deployment status,
+security findings, target voice architecture, and production release gates.
+
+## Selected voice channels
+
+The target AI Telesales Inbound system has two channels: phone calls to Twilio
+`+1 831 298 8954`, and browser WebRTC at
+`https://711shopping.com/chatandshop` using the Twilio Voice JavaScript SDK.
+The URL is user-designated but its availability has not been verified. Both
+channels are planned to share the Twilio gateway and AI/order services. The
+PSTN number still uses its existing webhook; the gateway and browser WebRTC
+client/token route are not deployed/implemented. No provider routing was
+changed by this repository update. Legacy NT/T30 prototype files are not
+deployment instructions.
+
+## Required account separation
+
+- **Google Cloud:** Use `smpmfast@gmail.com` for project `gen-lang-client-0845508747` and its GCP resources.
+- **Twilio:** Use `csdeebuddy@gmail.com` for Twilio Console and Twilio resources.
+- Verify the active account before inspecting or changing resources. Do not use one provider's account for the other provider.
+
 ## Prerequisites
 
 To run this application locally, you need:
@@ -30,6 +51,8 @@ The project is organized into two main directories:
 
 *   `frontend/`: Contains the Frontend application code.
 *   `backend/`: Contains the Node.js/Express server code to proxy Google Cloud API calls.
+* `backend/voice-adapter/`: IAP-protected WebSocket adapter for Vertex AI Live.
+* `backend/twilio-voice-gateway/`: Not-yet-deployed Twilio Programmable Voice ingress; WebRTC TwiML/token routes are not implemented.
 
 ## Backend Environment Variables
 
